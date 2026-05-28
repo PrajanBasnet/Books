@@ -1,0 +1,13 @@
+# ===== BACKEND =====
+backend/node_modules/
+backend/.env
+
+# ===== FRONTEND =====
+frontend/node_modules/
+frontend/.env
+frontend/dist/
+frontend/build/
+
+# ===== GENERAL =====
+.DS_Store
+*.log
