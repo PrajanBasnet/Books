@@ -107,7 +107,8 @@ VALUES
 async function seedingDb() {
     
     const client = new Client({
-        connectionString:"postgresql://pablo:root@localhost:5432/bookvault"
+           connectionString: process.env.DATABASE_URL || "postgresql://pablo:root@localhost:5432/bookvault",
+           ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false
     })
     console.log("Seeding...");
     await client.connect();
