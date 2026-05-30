@@ -9,8 +9,10 @@
     require('dotenv').config();
     const PORT = process.env.PORT || 5000;
     app.use(cors({
-    origin: 'http://localhost:5173' // your Vite frontend URL
-}))
+    origin: process.env.NODE_ENV === 'production'
+    ? process.env.FRONTEND_URL
+    : 'http://localhost:5173'
+}));
 
     app.use(express.json());
     app.use('/api/dashboard',dashboardRouter);
